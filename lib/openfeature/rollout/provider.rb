@@ -51,7 +51,7 @@ module OpenFeature
         @rollout_client = rollout_client
       end
 
-      def fetch_boolean_value(flag_key:, default_value:, evaluation_context: nil)
+      def fetch_boolean_value(flag_key:, default_value: nil, evaluation_context: nil)
         res = @rollout_client.active?(flag_key, evaluation_context&.targeting_key)
 
         OpenFeature::SDK::Provider::ResolutionDetails.new(
@@ -64,23 +64,23 @@ module OpenFeature
         )
       end
 
-      def fetch_number_value(flag_key:, default_value:, evaluation_context: nil)
+      def fetch_number_value(flag_key:, default_value: nil, evaluation_context: nil)
         error_response(default_value, "TYPE_MISMATCH", "Rollout does not support numeric flag values")
       end
 
-      def fetch_integer_value(flag_key:, default_value:, evaluation_context: nil)
+      def fetch_integer_value(flag_key:, default_value: nil, evaluation_context: nil)
         error_response(default_value, "TYPE_MISMATCH", "Rollout does not support numeric flag values")
       end
 
-      def fetch_float_value(flag_key:, default_value:, evaluation_context: nil)
+      def fetch_float_value(flag_key:, default_value: nil, evaluation_context: nil)
         error_response(default_value, "TYPE_MISMATCH", "Rollout does not support numeric flag values")
       end
 
-      def fetch_string_value(flag_key:, default_value:, evaluation_context: nil)
+      def fetch_string_value(flag_key:, default_value: nil, evaluation_context: nil)
         error_response(default_value, "TYPE_MISMATCH", "Rollout does not support string flag values")
       end
 
-      def fetch_object_value(flag_key:, default_value:, evaluation_context: nil)
+      def fetch_object_value(flag_key:, default_value: nil, evaluation_context: nil)
         error_response(default_value, "TYPE_MISMATCH", "Rollout does not support object flag values")
       end
 
