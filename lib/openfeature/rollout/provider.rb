@@ -52,7 +52,7 @@ module OpenFeature
       end
 
       def fetch_boolean_value(flag_key:, default_value: nil, evaluation_context: nil)
-        res = @rollout_client.active?(flag_key, evaluation_context)
+        res = @rollout_client.active?(flag_key, evaluation_context&.targeting_key)
 
         OpenFeature::SDK::Provider::ResolutionDetails.new(
           value: res,
