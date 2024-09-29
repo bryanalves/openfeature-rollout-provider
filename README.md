@@ -26,6 +26,6 @@ gem install openfeature-rollout-provider
 
 ```ruby
 OpenFeature::SDK.configure do |config|
-  config.provider = OpenFeature::Rollout::Provider.build_client(::Rollout.new(Redis.new))
+  config.set_provider OpenFeature::Rollout::Provider.build_client(::Rollout.new(Redis.new))
 end
 ```
